@@ -1,0 +1,32 @@
+
+<tr>
+	<td>{{$ctrl.deal.title}}</td>
+	<td>{{$ctrl.deal.contractLength}}months</td>
+	<td>{{$ctrl.deal.speed.label}} <br/> {{$ctrl.deal.usage.label}} </td>
+	<td><img ng-src="{{$ctrl.deal.offer.smallLogo}}" width="64" height="70"></td>
+	<td>
+		<div ng-if="$ctrl.deal.popularChannels.length > 0">
+			<span ng-repeat="channel in $ctrl.deal.popularChannels">
+				<img ng-src="{{channel.logo}}" width="70" height="20"> <br/>
+			</span>
+	    </div>
+		<div ng-if="$ctrl.deal.popularChannels.length == 0">
+			N/A
+	    </div>
+	</td> 
+	<td> 
+		<div ng-if="$ctrl.deal.mobile==null">
+			N/A
+	    </div>
+	 	<div ng-if="$ctrl.deal.mobile!=null">
+			Data: {{$ctrl.deal.mobile.data.label}} <br/>
+			Minutes: {{$ctrl.deal.mobile.minutes.label}} <br/>
+			Texts: {{$ctrl.deal.mobile.texts.label}} <br/>
+			Connection: {{$ctrl.deal.mobile.connectionType.label}} <br/>
+		</div> 
+	</td>  
+	<td>
+		{{$ctrl.deal.prices[0].totalContractCost}} £
+		<!--{{$ctrl.GetTotalContractCost()}}  -->
+	</td>
+</tr>
