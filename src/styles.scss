@@ -5,3 +5,32 @@
     background-size: contain;
     background-repeat: no-repeat;
 	}
+
+body { 
+	margin: 0 
+}
+
+header{
+	background: #dedede;
+	padding-bottom: 50px;
+}
+
+.container{
+	min-width:800px;
+	width:100%;
+	position:relative;
+	margin-left:calc((100vw - 1200px)/2);
+}
+
+.column-left{ 
+	position: relative;
+	background: #dedede;
+	box-sizing: border-box;
+	float: left;
+	width: 15%; 
+}
+
+.column-center{ 
+	display: inline-block; 
+	width: 45%; 
+}

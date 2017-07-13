@@ -1,0 +1,22 @@
+<div class="column-left">
+    <div >
+        <ul>
+         <li ng-repeat="filter in $ctrl.GetProductTypeFilters()">
+			<input type="checkbox" name="productTypes" value="{{filter}}">{{filter}}
+         </li>
+
+        </ul>
+    </div>
+    <div >
+      <label for="select-speed">Speed</label><br/>
+		<select name="select-speed">
+			<option value="Any">Any</option>			
+		</select>
+    </div>
+</div>
+
+<div class="column-center">
+    <deal-detail deals="$ctrl.deals"></deal-detail>
+</div>
+
+

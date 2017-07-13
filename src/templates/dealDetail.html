@@ -1,17 +1,47 @@
-   <table >
-        <thead>
-            <tr>
-                <th>About</th>
-                <th>contract Lenght</th>
-                <th>speed/usage</th>
-                <th>Offer</th>
-                <th>TV</th> 
-                <th>Mobile</th>  
-                <th>Cost</td>
-            </tr>
-        </thead>
-        <tbody>
-        <tr deal-detail-row ng-repeat="deal in $ctrl.deals" deal="deal">
+<table>
+    <thead>
+        <tr>
+            <th>About</th>
+            <th>contract Lenght</th>
+            <th>speed/usage</th>
+            <th>Offer</th>
+            <th>TV</th>
+            <th>Mobile</th>
+            <th>Cost</td>
         </tr>
-        </tbody>
-    </table>
+    </thead>
+    <tbody>
+        <tr ng-repeat="deal in $ctrl.deals">
+            <td>{{deal.title}}</td>
+            <td>{{deal.contractLength}}months</td>
+            <td>{{deal.speed.label}} <br /> {{deal.usage.label}} </td>
+            <td>
+                <img ng-src="{{deal.offer.smallLogo}}" width="64" height="70">
+            </td>
+            <td>
+                <div ng-if="deal.popularChannels.length > 0">
+                    <span ng-repeat="channel in deal.popularChannels">
+                        <img ng-src="{{channel.logo}}" width="70" height="20"> <br />
+                    </span>
+                </div>
+                <div ng-if="deal.popularChannels.length == 0">
+                    N/A
+                </div>
+            </td>
+            <td>
+                <div ng-if="deal.mobile!=null">
+                    Data: {{deal.mobile.data.label}} <br />
+                    Minutes: {{deal.mobile.minutes.label}} <br />
+                    Texts: {{deal.mobile.texts.label}} <br />
+                    Connection: {{deal.mobile.connectionType.label}} <br />
+                </div>
+                 <div ng-if="deal.mobile==null">
+                    N/A
+                </div>
+            </td>
+            <td>
+                {{deal.prices[0].totalContractCost}}£
+            </td>
+        </tr>
+    </tbody>
+</table>
